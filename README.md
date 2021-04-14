@@ -1,2 +1,5 @@
-# algorithm
-git 및 github 공부용
+# algorithm 
+-백준 알고리즘 및 프로그래머스 문제 풀이 입니다.
+
+###문제
+1. 
