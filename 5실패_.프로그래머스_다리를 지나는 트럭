@@ -1,0 +1,39 @@
+
+def solution(bridge_length, weight, truck_weights):
+    answer = 0
+    truck_on_bridge =[]
+    timer= []
+    
+    for i, cur_truck in enumerate(truck_weights):
+        
+        while True:
+# 맨 처음
+            if answer == 0:
+                truck_on_bridge.append(cur_truck)
+                timer.append(bridge_length)
+                truck_weights.pop(i)
+                answer = answer + 1
+                break
+# 새로 들어올 수 있는 트럭 존재
+            elif (sum(truck_on_bridge[0])+cur_truck) <= weight: 
+                answer = answer + 1
+                for time in timer:
+                    time = time-1
+
+                if timer[0] == 0:
+                    truck_on_bridge.pop(0)
+
+                truck_on_bridge.append(cur_truck)
+                timer.append(bridge_length)
+                truck_weights.pop(i)
+                break
+# 들어올 수 있는 트럭이 없을 때
+            else: 
+                answer = answer + 1
+                for time in timer:
+                    time = time-1
+
+                if timer[0] == 0:
+                    truck_on_bridge.pop(0)
+                                
+    return answer
