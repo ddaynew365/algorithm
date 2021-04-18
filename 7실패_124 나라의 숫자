@@ -1,0 +1,17 @@
+# 실패
+def solution(n):
+    array = []
+    samzin = [1,2,4]
+    new_num = []
+    n =n-1
+    while n>=1:
+        num = n % 3
+        n = n // 3
+        new_num.append(num)
+        
+    for idx, val in enumerate(new_num):
+        new_num[idx] = samzin[val]
+        
+    answer = new_num
+    
+    return answer
