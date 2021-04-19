@@ -1,0 +1,53 @@
+"""단순하게 이중 for문을 사용 - 정확도는 만점이었으나 효율성 부분에서 0점"""
+--------------------------------------
+def solution(prices):
+    answer = []
+    for cho, val in enumerate(prices):
+        time = len(prices) - (cho +1)
+        
+        for com_cho, com_val in enumerate(prices):
+            if cho >= com_cho:
+                continue
+                
+            if val > com_val:
+                time = com_cho - cho
+                break
+                
+        answer.append(time)
+    return answer
+    
+    =========================================================================
+    
+    
+    
+    """자료구조 stack을 사용"""
+    ---------------------------------
+    def solution(prices):
+    ran =len(prices)
+    answer = list(range(ran))
+    answer.reverse()
+    
+    
+    stack = []
+    
+    for idx, val in enumerate(prices):
+
+        if len(stack) == 0:
+            stack.append(val)
+            continue
+        
+        
+        if stack[-1] > val:
+            time = 1
+            while stack[-1] > val:
+                stack.pop()
+                answer[idx-time] =time
+                time = time + 1
+            stack.append(val)
+        else:
+            stack.append(val)
+                
+            
+
+    return answer
+
