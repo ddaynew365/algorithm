@@ -83,3 +83,38 @@ def solution(prices):
     for i in range(0, len(stack)-1):
         answer[stack[i]] = len(prices) - stack[i] - 1
     return answer
+
+"""
+5. 4/ 28 재 풀이: 다시 한번 스택으로 도전해 보았다. 하지만 결과는 실패였다. 제공해준 테스트 케이스는 합격을 받았지만 히든 케이스에 의해 실패가 떴다. 여러 테스트케이스를 추가해 확인한
+결과 스택에서 여러개가 동시에 빠지는 경우를 생각하지 못한 것이 문제였다. 이미 한번 풀었던 문제를 실패했다는 것에 부족함을 느꼈다. 앞으로는 새로운 문제뿐만 아니라 복습 역시 꾸준히 
+
+"""
+
+def solution(prices):
+    #스택 사용 - 리스트 
+    #스택 맨위와 들어올 수를 비교 -> 맨위가 크면 맨위를 뺴내고 시간계산/ 들어올 수가 크면 넣는다
+    answer = [-1] * len(prices)
+    stack =[]
+    for put in range(len(prices)):
+
+        
+        if not stack:
+            stack.append(put)
+            
+        else:
+            top = stack.pop()
+            
+            while prices[top] > prices[put]:
+                answer[top] = put - top
+                if len(stack) == 0:
+                    break
+                top = stack.pop() 
+            if prices[top] <= prices[put]:
+                stack.append(top)   
+            stack.append(put)  
+        
+    while stack:
+        top = stack.pop()
+        answer[top] = len(prices) -top -1
+
+    return answer
