@@ -31,6 +31,45 @@
  - all(): 인자로 받은 데이터의 모든 요소가 True일때만 True, 요소가 비어있으면 True
  - any(): 인자로 받은 요소 중 하나라도 True면 True, 요소가 비어있으면 False
 
+10. property 함수
+- 해당 함수는 range의 구조가 궁금하여 선언문을 봤을 때 발견함
+- 외부로부터 데이터를 보호하기 위한 getter, setter을 실제로는 썻지만 마치 안 쓴것처럼 보이게 하는 기능을 가지고 있다.(delete도 포함)
+- 예시)
+class Person:
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
+    def get_age(self):
+        return self._age
+
+    def set_age(self, age):
+        if age < 0:
+            raise ValueError("Invalid age")
+        self._age = age
+
+    age = property(get_age, set_age)
+    
+- property 데코레이터도 존재(@property)
+- 이 경우는 함수명의 get_와 set_을 생략가능하게 해줌
+- 에시)
+class Person:
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, age):
+        if age < 0:
+            raise ValueError("Invalid age")
+        self._age = age
+        
 
 ## 자료구조 정리
 1. 큐
@@ -78,3 +117,4 @@
     - Round-Robin : FCFS 방식 기반에 CPU가 할당한 시간이 지나면 작업을 뺏어가고 다음 프로세스에게 넘겨주는 스케줄링(기아 현상은 예방하지만 context switch에서 오버헤드가 발생할 수있다.)
     - SRT : SPN과 유사하나 선점이 가능한 스케줄링(기아 현상이 발생할 수 있다.)
     - Multi-process queue : 우선순위별로 프로세스를 서로 다른 큐에 집어넣고 우선순위가 높은 큐부터 스케줄링
+
