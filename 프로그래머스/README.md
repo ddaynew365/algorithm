@@ -70,6 +70,31 @@ class Person:
             raise ValueError("Invalid age")
         self._age = age
         
+11. divmod(a,b)
+- a를 b로 나누었을 때 몫과 나머지를 계산하는 함수
+- 밑에 쓰여진 *divmod(a,b)를 사용하면 몫과 나머지가 따로 나오게 할 수 있다
+
+13. * 연산 - unpacking
+- 단순 곱하기독 가능하지만 함수의 인자로 쓰일 때 변수 앞에 써놓으면 unpacking해서 값이 들어간다
+
+15. int("3212",2)
+- int() 함수를 위와 같이 쓰면 해당 문자열의 수를 2진법으로 표현할 수 있다.
+
+17. ljust(), rjust(), center()
+- print()함수를 쓸 때 해당 함수를 쓰면 왼쪽, 가운데, 오른쪽 정렬이 가능하다
+
+19. strip()
+- 인자안의 값이 문자열에서 가장 끝 부분에 있다면 제거해준다.
+
+21. string 모듈
+- string.ascii_lowercase 나 string.ascii_uppercase같은 것을 사용하면 알파벳을 꺼낼 수 있다(문자열)
+
+23. zip()
+- 인자안의 값들을 packing하는 함수다
+- list(map(list, zip(*mylist)))를 사용하면 이차원 리스트의 열과 행을 바꿀 수 있다
+- dict(zip(animals, sounds))같은 방법으로 리스트 2개를 딕셔너리로 바꿀 수도 있다
+
+        
 
 ## 자료구조 정리
 1. 큐
