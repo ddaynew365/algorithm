@@ -94,6 +94,24 @@ class Person:
 - list(map(list, zip(*mylist)))를 사용하면 이차원 리스트의 열과 행을 바꿀 수 있다
 - dict(zip(animals, sounds))같은 방법으로 리스트 2개를 딕셔너리로 바꿀 수도 있다
 
+24. 제곱수 판별하기
+- if math.sqrt(a) == int(math.sqrt(a)):
+
+25. 딕셔너리 값으로 키 찾기 
+- items() 사용
+
+
+26. bisect
+- 이진 탐색을 가능하게 해준다
+- bisect.bisect(a, 3)
+
+27. __str__ 함수
+- 클래스의 내부에서 출력 format을 설정하는 함수
+
+28. inf
+- 파이썬에서 그 어떤 수보다 크다고 인식
+- 예시) int('inf')
+
         
 
 ## 자료구조 정리
