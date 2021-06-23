@@ -1,43 +1,9 @@
+"""
+numbers 리스트의 원소들을 모두 3번 이어쓰게 한 후 사전 순으로 정렬하였다.
+예를 들면 [6, 30, 3]이 있을 때, [666,303030, 333]으로 쓴 후 사전순으로 [666,333,303030]으로 정렬하였다.
+3번 이어쓴 이유는 리스트의 원소의 최대값이 3자리수이기 떄문이다.
+"""
 def solution(numbers):
-    strs = []
-    dict_ = {}
-    answer = ''
-
-    for i in numbers:
-        values = i
-
-        if i == 0:
-            continue
-
-        else:
-            if i / 10 >= 1:
-                i = i / 10
-
-            else:
-                dict_[i] = values
-
-            while i >= 1:
-
-                if i / 10 >= 1:
-                    i = i / 10
-
-                else:
-                    dict_[i] = values
-                    break
-    print(dict_)
-    key_num = list(dict_.keys())
-    print(key_num)
-    key_num = sorted(key_num)
-    print(key_num)
-    key_num.reverse()
-
-    for i in key_num:
-        strs.append(str(dict_[i]))
-
-    for i in strs:
-        answer = answer + i
-
+    str_numbers = sorted(numbers, reverse = True, key = lambda x : str(x)*3)
+    answer = str(int(''.join(map(str,str_numbers))))
     return answer
-
-number = [6, 10, 2]
-print(solution(number))
