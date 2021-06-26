@@ -71,3 +71,17 @@ def solution(phone_book):
             if temp in hash_map and temp != phone_number:
                 answer = False
     return answer
+
+
+"""
+5. 이번 문제는 타입힌트를 사용하여 문제를 풀어냈다
+"""
+def solution(phone_book: list) -> bool:
+    phone_book.sort()
+    answer:bool =True
+        
+    for i in range(len(phone_book)-1):
+        if phone_book[i+1].startswith(phone_book[i]):
+            answer = False
+
+    return answer
