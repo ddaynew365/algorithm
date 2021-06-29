@@ -5,7 +5,10 @@
       코딩에서 가장 중요한 만크 좀 더 여유롭게 생각하는 습관을 가져야겠다.
 """
 
-
+'''
+첫번째 풀이 - 실패
+리스트 즉 바구니의 길이가 1인 경우는 생각하지 못하여 처리를 안해주었기 때문에 문제를 해결하지 못하였다.
+'''
 def solution(board, moves):
     answer = 0
     list =[]
@@ -33,8 +36,10 @@ def solution(board, moves):
             
     return answer
     
-    
-# 성공 코드
+'''
+두번쨰 풀이 - 성공
+위에서 바구니(스택)의 길이가 1인 경우를 처리해주어서 문제가 해결되었다.
+'''
 
 def solution(board, moves):
     answer = 0
@@ -61,4 +66,28 @@ def solution(board, moves):
                     answer += 2
                 break
             
+    return answer
+
+'''
+세번째 풀이 - 성공 (2021-06-29)
+경우의 수를 명확하게 나눴고 변수의 작명에 좀 더 신경쓰게 되었다.
+전반적으로 기존에 비해 코드의 가독성이 올라 간 것 같다.
+'''
+def solution(board, moves):
+    answer = 0
+    basket = []
+
+    for move in moves:
+        move = move - 1
+        for i in range(len(board)):
+            if board[i][move] != 0:
+                basket.append(board[i][move])
+                board[i][move] = 0
+                break
+
+        if len(basket) >= 2 and basket[-1] == basket[-2]:
+            basket.pop()
+            basket.pop()
+            answer += 2
+
     return answer
