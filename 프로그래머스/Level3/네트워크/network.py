@@ -32,3 +32,38 @@ def solution(n, computers):
             answer += 1
     
     return answer
+
+'''
+2021년 7월 1일 재풀이
+'''
+
+from collections import deque
+
+
+def bfs(computers, visited, i):
+    queue = deque([i])
+    if visited[i] == True:
+        return 0, visited
+
+    while queue:
+        v = queue.popleft()
+        visited[v] = True
+
+        for idx, c in enumerate(computers[v]):
+            if idx == v:
+                continue
+
+            if c == 1 and visited[idx] == False:
+                queue.append(idx)
+
+    return 1, visited
+
+
+def solution(n, computers):
+    answer = 0
+    visited = [False] * n
+    for i in range(n):
+        find, visited = bfs(computers, visited, i)
+        answer += find
+
+    return answer
