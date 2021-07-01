@@ -60,5 +60,53 @@ def solution(begin, target, words):
                 visited.append(w)
                 queue.append(w)     
                 answer[w] = answer[curr] +1
-    
+
+
+'''
+각각 기능별 함수로 쪼개어 좀 더 구조적인 코드가 되게 만들었다 
+'''
+from collections import deque
+
+
+def diff_oneletter(word, cur):
+    count = 0
+
+    for w_char, c_char in zip(word, cur):
+        if w_char != c_char:
+            count += 1
+
+        if count >= 2:
+            break
+
+    if count == 1:
+        return True
+    else:
+        return False
+
+
+def bfs(begin, target, words):
+    queue = deque([begin])
+    visited = {}
+    visited[begin] = 0
+
+    while queue:
+        cur = queue.popleft()
+        if cur == target:
+            break
+
+        for word in words:
+            if word not in visited and diff_oneletter(word, cur) == True:
+                queue.append(word)
+                visited[word] = visited[cur] + 1
+
+    if target not in visited:
+        return 0
+    else:
+        return visited[target]
+
+
+def solution(begin, target, words):
+    answer = 0
+    answer = bfs(begin, target, words)
+    return answer
     
