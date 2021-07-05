@@ -1,5 +1,6 @@
 import sys
 from collections import defaultdict
+from itertools import combinations
 # 입력을 받는다
 n, k = map(int, sys.stdin.readline().strip().strip().split())
 arr = []
@@ -26,20 +27,21 @@ for _ in range(n):
     # a n t a hellotica 실패
     # a n t a c a rtica 실패 ---> 0개의 단어를 읽었다...
         # 위와 같은 흐름을 모두 돌린다
-
-selectword = defaultdict(int)
+max = -1
 if k >= 5:
-    # remain_alpha = []
-    # for a in arr:
-    #     remain_alpha.append(set(a) - {'a', 'n', 't', 'i', 'c'})
-    #
-    # for ra in remain_alpha:
-    #     for r in ra:
-    #         selectword[r] += 1
-    #
-    # for i in range(K-5):
-    #
+    remain_alpha = set()
+    for a in arr:
+        remain_alpha.update(set(a) - {'a', 'n', 't', 'i', 'c'})
 
+    for c in combinations(remain_alpha, k-5):
+        count = 0
+        for a in arr:
+            result = set(a) - {'a', 'n', 't', 'i', 'c'} - set(c)
+            if result == set():
+                count += 1
+        if count > max:
+            max = count
+    print(max)
 
 # 만약에 입력이 k가 5보다 작으면 ??? 무조건 0...
 else:
