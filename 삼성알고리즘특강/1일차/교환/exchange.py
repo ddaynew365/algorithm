@@ -11,5 +11,3 @@
 # arr로 바꾸기
 # 수로 바꾸기
 # 교환하는 함수
-def conv(num, l, r):
-    char
