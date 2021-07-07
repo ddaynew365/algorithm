@@ -18,7 +18,7 @@ def solution(n):
             # 그 다음 퀸을 놓을 자리 탐색
             else:
                 for j in range(1, n+1):
-                    col[i+1]= j
-                    bt(i+1,col,answer)
+                    col[i+1] = j
+                    bt(i+1, col, answer)
     bt(0,col,answer)
     return answer[0]

@@ -48,7 +48,7 @@ int get_num_len(int num) {
 	return len;
 }
 
-int main_exchange() {
+int main() {
 	// todo - 완전탐색
 	// 숫자를 직접 교환하는 로직
 	// 교환해서 단계별로 탐색해가는 로직
