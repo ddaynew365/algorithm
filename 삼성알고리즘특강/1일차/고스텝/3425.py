@@ -66,6 +66,7 @@ def mul(stack, error):
         return stack, error
     b = stack.pop()
     a = stack.pop()
+
     if a*b > abs(big_num):
         error = True
         return stack, error
@@ -80,7 +81,7 @@ def div(stack, error):
         error = True
     a = stack.pop()
     b = stack.pop()
-    if b == 0:
+    if a == 0:
         error = True
         return stack, error
     if a < 0:
@@ -103,51 +104,80 @@ def mod(stack, error):
         error = True
     a = stack.pop()
     b = stack.pop()
-    if b == 0:
+    if a == 0:
         error = True
         return stack, error
     if a < 0:
         a = abs(a)
         sig += 1
+    b_flag = True
     if b < 0:
         b = abs(b)
         sig += 1
+        b_flag = False
 
     if sig % 2 == 0:
-        stack.append(b % a)
+        if b_flag == True:
+            stack.append(b % a)
+        else:
+            stack.append(-(b % a))
     else:
         stack.append(-(b % a))
 
     return stack, error
 
-N = int(input())
 
-stack = []
-while True:
-    error = False
-    cmd = sys.stdin.readline().strip()
-    if cmd.startswith("NUM"):
-        stack, flag = num_x(stack, flag)
-    elif cmd == "POP":
-        stack = pop(stack)
-    elif cmd == "INV":
-        stack = inv(stack)
-    elif cmd == "DUP":
-        stack = dup(stack)
-    elif cmd == "SWP":
-        stack = swp(stack)
-    elif cmd == "ADD":
-        stack, flag = (stack, flag)
-    elif cmd == "SUB":
-        stack, flag = sub(stack, flag)
-    elif cmd == "MUL":
-        stack, flag = mul(stack, flag)
-    elif cmd == "DIV":
-        stack, flag = div(stack, flag)
-    elif cmd == "MOD":
-        stack, flag = mod(stack, flag)
-    else:
-        break
 
-    if error == True:
+
+quit = False
+while True: # 프로그램
+    cmds= []
+    while True: # 명령어 받기
+        user = sys.stdin.readline().strip()
+        cmds.append(user)
+        if user == 'QUIT':
+            quit = True
+            break
+        if user == 'END':
+            print()
+            break
+    if quit == True:
         break
+    N = int(sys.stdin.readline().strip())
+
+    for _ in range(N):
+        num = int(sys.stdin.readline().strip())
+        stack = [num]
+        for cmd in cmds:
+            error = False
+            if cmd.startswith("NUM"):
+                stack = num_x(stack, cmd)
+            elif cmd == "POP":
+                stack,error = pop(stack,error)
+            elif cmd == "INV":
+                stack,error = inv(stack,error)
+            elif cmd == "DUP":
+                stack,error = dup(stack,error)
+            elif cmd == "SWP":
+                stack,error = swp(stack,error)
+            elif cmd == "ADD":
+                stack, error = add(stack, error)
+            elif cmd == "SUB":
+                stack, error = sub(stack, error)
+            elif cmd == "MUL":
+                stack, error = mul(stack, error)
+            elif cmd == "DIV":
+                stack, error = div(stack, error)
+            elif cmd == "MOD":
+                stack, error = mod(stack, error)
+            elif cmd == "END":
+                if len(stack) == 1:
+                    print(stack[0])
+                else:
+                    print("ERROR")
+            else:
+                break
+
+            if error == True:
+                print("ERROR")
+                break

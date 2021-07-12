@@ -45,3 +45,8 @@ for value, a, b in graph:
 
 print(total)
 
+'''
+프림 알고리즘
+'''
+import heapq
+
