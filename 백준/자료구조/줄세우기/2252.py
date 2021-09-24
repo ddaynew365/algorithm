@@ -4,12 +4,13 @@
 """
 import sys
 from collections import defaultdict, deque
+
 st_num, comp = map(int,sys.stdin.readline().strip().split())
 result = defaultdict(list)
-
 parent = [0] * (st_num+1)
+
 for _ in range(comp):
-    win , lose = map(int,(sys.stdin.readline().strip().split()))
+    win, lose = map(int,(sys.stdin.readline().strip().split()))
     parent[lose] += 1
     result[win].append(lose)
 
@@ -30,6 +31,3 @@ while queue:
 
 for i in answer:
     print(i ,end = ' ')
-
-
-
