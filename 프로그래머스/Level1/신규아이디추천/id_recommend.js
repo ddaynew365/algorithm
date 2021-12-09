@@ -57,7 +57,9 @@ function solution(new_id) {
   return answer;
 }
 
-// 다른 사람들의 chaining을 보면서 공부한 메소드를 사용한 콛
+// 다른 사람들의 chaining을 보면서 공부한 메소드를 사용한 코드
+// chaining을 사용함으로써 좀 더 깔끔해진 모습을 볼 수 있다.
+// Js에서는 Python의 문자열 처리 메소드 대신 정규식을 많이 사용한다는 것을 알 수 있었다.
 function solution(new_id) {
   const answer = new_id
       .toLowerCase()
