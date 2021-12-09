@@ -1,3 +1,3 @@
-a = set()
-a.add([1,2])
-print(a)
+a = "hii"
+print(a[:len(a)-1])
+print(a[:len(a)-2])
