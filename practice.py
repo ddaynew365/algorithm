@@ -1,2 +1,4 @@
-a= " ba"
-print(sorted(a))
+a = "hi"
+b ="hil"
+
+print(a in b)
