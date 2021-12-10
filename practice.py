@@ -1,3 +1,2 @@
-a = "hii"
-print(a[:len(a)-1])
-print(a[:len(a)-2])
+a= " ba"
+print(sorted(a))
