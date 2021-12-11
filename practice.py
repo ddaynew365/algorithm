@@ -1,4 +1,3 @@
-a = "hi"
-b ="hil"
-
-print(a in b)
+a= [("d","f"), ("f","d")]
+a = ''.join(map(''.join, a))
+print(a)
