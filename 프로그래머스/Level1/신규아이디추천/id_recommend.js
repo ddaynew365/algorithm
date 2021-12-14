@@ -43,9 +43,9 @@ function seventh(id){
     }
     return id;
 }
-  
+
 function solution(new_id) {
-  var answer = '';
+  let answer = '';
   answer = first(new_id);
   answer = second(answer);
   answer = third(answer);

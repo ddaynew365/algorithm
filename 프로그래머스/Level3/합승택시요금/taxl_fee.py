@@ -40,28 +40,11 @@ def solution(n, s, a, b, fares):
 # 다익스트라 알고리즘을 모든 노드에서 사용한 것이 플로이드 워셜과 같은 기능 
     #  -> 하지만 다익스트라 알고리즘은 최적화를 시키면 NlogN이 가능하기 떄문에 더 좋긴하다
 
-def pw(n, fares):
-    inf = int(1e9)
-    table = [[inf] * (n) for _ in range(n)]
-    
-    for i in range(n):
-        table[i][i] = 0
-        
-    for i, j, v in fares:
-        table[i-1][j-1] = table[j-1][i-1] = v
-    
-    for num in range(n):
-        for i in range(n):
-            for j in range(n):
-                compare =  table[i][num] + table[num][j]
-                if table[i][j] > compare:
-                    table[i][j] = compare
-    return table
 
-def solution(n, s, a, b, fares):
+def solution(n: int, s: int, a: int, b: int, fares: list[list[int]]):
     s, a, b = s-1, a-1, b-1
-    inf = int(1e9)
-    table = [[inf] * (n) for _ in range(n)]
+    inf: int = int(1e9)
+    table: list[list[int]] = [[inf] * (n) for _ in range(n)]
     
     for i in range(n):
         table[i][i] = 0
@@ -75,7 +58,7 @@ def solution(n, s, a, b, fares):
                 compare =  table[i][num] + table[num][j]
                 if table[i][j] > compare:
                     table[i][j] = compare
-    answer = int(1e9)
+    answer: int = int(1e9)
     for i in range(n):
         compare = table[s][i] + table[i][a] + table[i][b]
         if answer > compare:

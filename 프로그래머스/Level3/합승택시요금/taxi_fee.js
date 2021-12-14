@@ -1,12 +1,5 @@
 function makePw(n, fares) {
-  // let graph = new Array(n);
-  // for(let i = 0; i<n; i++){
-  //     graph[i] = Array.from({length: n}, () => Infinity);
-  // }
   let graph = Array.from({length: n}, (_, i) => Array.from({length: n}, (_, j)=> i === j ? 0 : Infinity));
-  // graph.map(() => Array.from({length: n}, () => Infinity));
-  // console.log(graph);
-  // graph.map((value, idx) => value[idx] = 0)
   fares.forEach((list) => {
       let [i, j, v] = list;
       graph[i-1][j-1] = v;
@@ -31,7 +24,6 @@ function solution(n, s, a, b, fares) {
      if (answer > (table[s][i] + table[i][a] + table[i][b])){
          answer = table[s][i] + table[i][a] + table[i][b];
      }
-      
   }
   return answer;
 }
