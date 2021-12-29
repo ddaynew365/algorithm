@@ -1,4 +1,6 @@
+# 첫번째 풀이 - 정규식과 메소드를 사용
 import re
+import collections
 def mostCommonWord( paragraph: str, banned: list[str]) -> str:
     paragraph = paragraph.lower()
     paragraph = re.sub('[^\w]'," ",paragraph)
@@ -17,11 +19,9 @@ def mostCommonWord( paragraph: str, banned: list[str]) -> str:
         if count[i] == maxi :
             return i
 
-# ----------------------------
-def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
-    # paragraph = paragraph.lower()
-    # paragraph = re.sub('[^\w]'," ",paragraph)
-    # str_list = paragraph.split(" ")
+# 두번째 풀이 - 리스트컴프리헨션 사용, collections.defaultdict() 사용 , max()의 key 사용 -> key = 리스트.get
+
+def mostCommonWord(self, paragraph: str, banned: list[str]) -> str:
     words = [word for word in re.sub("[^\w]"," ",paragraph)
                 .lower().split()
                     if word not in banned]
@@ -30,8 +30,8 @@ def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
         counts[word] += 1
     return max(counts, key = counts.get)
   
-# --------------------------------
-def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+# 세번째 풀이 - collections.Counter() 사용 -> most_common메소드
+def mostCommonWord(self, paragraph: str, banned: list[str]) -> str:
   # paragraph = paragraph.lower()
   # paragraph = re.sub('[^\w]'," ",paragraph)
   # str_list = paragraph.split(" ")
