@@ -1,3 +1,2 @@
-a = "ddd ddd"
-print(a.split())
-print(a.split(" "))
+a ='aaa2'
+print(a[1:6])
