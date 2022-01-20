@@ -1,3 +1,4 @@
+from typing import List
 from collections import deque
 def bfs(start, grid):
     y,x = start

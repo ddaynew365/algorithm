@@ -1,5 +1,6 @@
 # 힙으로 푸는 방법=> Counter를 쓴 후 최대 힙에 숫자들을 집어놓고 순서대로 꺼낸다.
 from collections import Counter
+from typing import List
 import heapq
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
