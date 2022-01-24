@@ -9,4 +9,4 @@ class Solution:
                 dfs(clist+[origin[num]], origin[:num] + origin[num+1:])
         dfs([], nums)
         return result
-    
+
