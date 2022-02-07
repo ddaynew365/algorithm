@@ -15,4 +15,15 @@ class Solution:
             elif nums[m] < target:
                 lo = m + 1
         return -1
+
+# 파이썬 모듈을 사용하면 다음과 같은 방법도 가능
+# from bisect import bisect_left
+# from typing import List
+# class Solution:
+#     def search(self, nums: List[int], target: int) -> int:
+#         index = bisect_left(nums, target)
         
+#         if index < len(nums) and nums[index] == target:
+#           return index
+#         else:
+#           return -1
