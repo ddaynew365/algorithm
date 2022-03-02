@@ -1,2 +1,6 @@
-a ='aaa2'
-print(a[1:6])
+from collections import Counter
+s = 'abc'
+
+counts= Counter()
+counts[s[1]] += 1
+print(counts)
