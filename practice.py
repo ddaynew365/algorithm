@@ -1,6 +1,11 @@
-from collections import Counter
-s = 'abc'
+def i(hi):
+  if len(hi) == 1:
+    return
+  r = []
+  r= hi
+  i(hi[1:])
+  print(r)
+  
+  
 
-counts= Counter()
-counts[s[1]] += 1
-print(counts)
+i([1,2,3])
