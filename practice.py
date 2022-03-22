@@ -1,11 +1,9 @@
-def i(hi):
-  if len(hi) == 1:
-    return
-  r = []
-  r= hi
-  i(hi[1:])
-  print(r)
-  
-  
+a =[[0] * 5]
+print(a)
+a[0] =[1]
+print(a)
 
-i([1,2,3])
+a = [[0] * 5 for _ in range(5)]
+print(a)
+a[0] =[1]
+print(a)
