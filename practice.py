@@ -1,9 +1,17 @@
-a =[[0] * 5]
-print(a)
-a[0] =[1]
-print(a)
+x = '101'
+y = '101'
+z = '101'
+n =5
 
-a = [[0] * 5 for _ in range(5)]
-print(a)
-a[0] =[1]
-print(a)
+while len(x) < n:
+  x = '0' + x
+ 
+print(x)
+
+#zfill
+y = y.zfill(5)
+print(y)
+
+#rjust
+z = z.ljust(5, '0') 
+print(z)
