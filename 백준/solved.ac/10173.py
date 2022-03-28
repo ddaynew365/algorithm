@@ -4,6 +4,6 @@ while True:
   if str == "EOI":
     break
   if re.search("nemo", str.lower()):
-    print("FOUND")
+    print("Found")
   else:
     print("Missing")
