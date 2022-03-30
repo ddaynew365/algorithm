@@ -3,6 +3,6 @@ while True:
   str = input()
   if str == "#":
     break
-  p = re.compile("[aeiou]", re.I)
-  arr = p.findall(str)
+  p = re.compile("[aeiou]")
+  arr = p.findall(str.lower())
   print(len(arr))

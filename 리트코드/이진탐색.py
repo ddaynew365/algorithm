@@ -14,3 +14,19 @@ def getMaxBarrier(initialEnergy, th):
         else:
             return mid
     return hi
+
+def general(arr, th):
+    # Write your code here
+    lo = 0
+    hi = len(arr)
+    while lo <= hi:
+        mid = (hi + lo) // 2
+        if arr[mid] > th:
+            hi = mid - 1
+        elif arr[mid] < th:
+            lo = mid + 1
+        else:
+            return mid
+    return lo
+
+print(general([1,3,7,8,10,15], 8))
