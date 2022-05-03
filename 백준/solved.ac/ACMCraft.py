@@ -27,7 +27,7 @@ for _ in range(t):
     total_time, cur = stack.pop()
     c_count[cur] = -1
     time = c_time[cur]
-    if cur == w:
+    if cur == w:  
       print(total_time+time)
       break
     for next in c_rule[cur]:
