@@ -1,3 +1,4 @@
+# 순열 대표 문제
 from typing import List
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
